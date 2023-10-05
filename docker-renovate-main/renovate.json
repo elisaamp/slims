@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>renovatebot/.github"],
+  "ignorePresets": [":maintainLockFilesWeekly"],
+  "prCreation": "immediate",
+  "automergeType": "pr",
+  "baseBranches": ["$default", "/^v\\d+$/"],
+  "packageRules": [
+    {
+      "description": "No longer updates these branches",
+      "matchBaseBranches": ["v35"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["renovate"],
+      "automerge": true,
+      "separateMinorPatch": false,
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Do not pin package.json deps",
+      "matchFileNames": ["package.json"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "matchBaseBranches": ["/^v\\d+$/"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

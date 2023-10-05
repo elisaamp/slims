@@ -1,0 +1,5 @@
+{
+  "image": "renovate",
+  "startVersion": "36.0.0",
+  "cache": "docker-build-cache"
+}
